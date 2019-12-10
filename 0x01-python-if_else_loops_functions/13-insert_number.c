@@ -1,5 +1,5 @@
 #include "lists.h"
-
+#include <stdio.h>
 /**
  * insert_node - prints all elements of a listint_t list
  * @head: pointer to head of list
@@ -19,13 +19,18 @@ new = add_nodeint_end(head, number);
 return (new);
 }
 current = *head;
-for (; current; current = current->next)
+if (current->n > number)
 {
-if (current->next == NULL)
-{
-new = add_nodeint_end(head, number);
+new = malloc(sizeof(listint_t));
+if (new == NULL)
+return (NULL);
+new->n = number;
+new->next = *head;
+*head = new;
 return (new);
 }
+for (; current ; current = current->next)
+{
 if (current->next->n >= number)
 {
 new = malloc(sizeof(listint_t));
@@ -37,5 +42,6 @@ current->next = new;
 return (new);
 }
 }
-return (NULL);
+new = add_nodeint_end(head, number);
+return (new);
 }

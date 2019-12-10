@@ -7,7 +7,7 @@ else:
     remainder = number % -10
 print('Last digit of', number, 'is', remainder, end=' ')
 if remainder == 0:
-    print("and is zero")
+    print("and is 0")
 elif remainder > 5:
     print("and is greater than 5")
 else:

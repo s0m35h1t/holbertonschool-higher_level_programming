@@ -19,8 +19,13 @@ new = add_nodeint_end(head, number);
 return (new);
 }
 current = *head;
-for (; current && current->next; current = current->next)
+for (; current; current = current->next)
 {
+if (current->next == NULL)
+{
+new = add_nodeint_end(head, number);
+return (new);
+}
 if (current->next->n >= number)
 {
 new = malloc(sizeof(listint_t));
@@ -32,6 +37,5 @@ current->next = new;
 return (new);
 }
 }
-new = add_nodeint_end(head, number);
-return (new);
+return (NULL);
 }

@@ -1,8 +1,5 @@
 #include <stdio.h>
 #include <Python.h>
-#include <string.h>
-
-
 /**
  * print_python_list_info - print basic info about Python lists
  * @p: python object pointer
@@ -17,7 +14,7 @@ struct _typeobject *elm_type;
 
 if (!strcmp(p->ob_type->tp_name, "list"))
 {
-l = (PyListObject *p);
+l = (PyListObject *)p;
 list_size = l->ob_base.ob_size;
 printf("[*] Size of the Python List = %ld\n", list_size);
 printf("[*] Allocated = %ld\n", l->allocated);

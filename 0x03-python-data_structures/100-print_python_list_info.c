@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <Python.h>
+#include <string.h>
+
+
 /**
  * print_python_list_info - print basic info about Python lists
  * @p: python object pointer

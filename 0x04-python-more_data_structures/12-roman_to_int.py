@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-def roman_to_int(roman_string):
-    if roman_string and type(roman_string) is str:
-        roman_num = {
+def roman_to_int(rom_str):
+    if rom_str and type(rom_str) is str:
+        ro_num = {
             'I': 1,
             'V': 5,
             'X': 10,
@@ -11,9 +11,10 @@ def roman_to_int(roman_string):
             'M': 1000
         }
         sum = 0
-        for i in roman_string:
-            if i not in roman_num.keys():
-                return 0
-            sum += roman_num[i]
+        for i in range(len(rom_str)):
+            if i > 0 and ro_num[rom_str[i]] > ro_num[rom_str[i - 1]]:
+                sum += ro_num[rom_str[i]] - 2 * ro_num[rom_str[i - 1]]
+            else:
+                sum += ro_num[rom_str[i]]
         return sum
     return (0)

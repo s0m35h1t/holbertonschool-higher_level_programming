@@ -32,7 +32,7 @@ printf("  first %d bytes: ", list_size);
 for (i = 0; c < list_size; i++)
 {
 printf("%02hhx", bytes->ob_sval[i]);
-if ((list_size == i - 1)
+if (list_size == i - 1)
 printf("\n");
 else
 printf(" ");

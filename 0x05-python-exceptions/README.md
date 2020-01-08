@@ -1,11 +1,8 @@
 # 0x05. Python - Exceptions
 ## About
 An introductory project on:
-- Exceptions
-- Errors hand
-## Requirements
-- Python 3.4
-- pep8 1.7
+- Exceptions try/execpt
+- Handling Exceptions
 ## File Descriptions
 ### Mandatory
 **0-safe_print_list.py** - function that prints `x` elements of a list.

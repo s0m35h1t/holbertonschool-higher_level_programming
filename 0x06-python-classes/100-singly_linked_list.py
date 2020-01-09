@@ -128,7 +128,7 @@ class SinglyLinkedList:
         curr = self.__head
         rep_str = ""
         while curr is not None:
-            rep_str = str(curr)
+            rep_str += str(curr)
             if curr.next_node is not None:
                 rep_str += "\n"
             curr = curr.next_node

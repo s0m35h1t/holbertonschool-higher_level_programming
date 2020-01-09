@@ -106,7 +106,7 @@ class SinglyLinkedList:
         curr = self.__head
         if curr is None or curr.data >= value:
             if curr:
-                new.next_node = tmp
+                new.next_node = curr
             self.__head = new
             return
         while curr.next_node is not None:

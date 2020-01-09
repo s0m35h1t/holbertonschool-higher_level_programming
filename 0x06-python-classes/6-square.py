@@ -74,13 +74,12 @@ class Square:
         Returns:
             None
         """
-        if type(value) is not tuple or len(value) != 2:
-            for i in value:
-                if i <= 0:
-                    raise TypeError("position must be a \
-                                        tuple of 2 positive integers")
-            else:
-                self.__position = value
+        if type(value) is not tuple or len(value) != 2 or \
+           type(value[0]) is not int or value[0] < 0 or \
+           type(value[1]) is not int or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__position = value
 
     def my_print(self):
         """that prints in stdout the
@@ -91,6 +90,7 @@ class Square:
         """
         if self.__size == 0:
             print()
+            return
         else:
             for i in range(self.__position[1]):
                 print()

@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
-"""Defines a class Node"""
+
 class Node:
     """Represents a node in a singly linked list
 
     Attributes:
-        __data (int): node data
-        __next_node (Node): next node element
+        __data (int): data stored inside the node
+        __next_node (Node): next node in the linked list
     """
 
     def __init__(self, data, next_node=None):
@@ -14,40 +14,29 @@ class Node:
 
         Args:
             data (int): node data
-            next_node (Node): next linked list node
+            next_node (Node): linked list next node
 
         Returns:
             None
         """
-
-        self.__data = data
-        self.__next_node = next_node
+        self.data = data
+        self.next_node = next_node
 
     @property
     def data(self):
-        """get node data: __data
+        """get: __data
 
         Returns:
-            (int) node data
+            node data
         """
-
         return self.__data
-
-    @property
-    def next_node(self):
-        """get of __next_node
-
-        Returns:
-           the next linked list node
-        """
-        return self.__next_node
 
     @data.setter
     def data(self, value):
-        """set  of __data
+        """set:__data
 
         Args:
-            value (int): new node data value
+            value (int): node data
 
         Returns:
             None
@@ -56,18 +45,26 @@ class Node:
             raise TypeError("data must be an integer")
         self.__data = value
 
+    @property
+    def next_node(self):
+        """get: __next_node
+
+        Returns:
+           the next node in the linked list
+        """
+        return self.__next_node
+
     @next_node.setter
     def next_node(self, value):
-        """set of __next_node
+        """set: __next_node
 
         Args:
-            value (Node): next the linked list node
+            value (Node): linked list next node
 
         Returns:
             None
         """
-
-        if type(value) not in [Node, None]:
+        if value is not None and type(value) is not Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
@@ -79,7 +76,6 @@ class Node:
         """
         return str(self.__data)
 
-"""Defines a class SinglyLinkedList"""
 
 class SinglyLinkedList:
     """Represents a single linked list

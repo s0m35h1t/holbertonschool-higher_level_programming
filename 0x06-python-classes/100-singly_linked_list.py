@@ -13,8 +13,8 @@ class Node:
         """Initializes the node
 
         Args:
-            data (int): node data
-            next_node (Node): linked list next node
+            data (int): data stored inside the node
+            next_node (Node): next node in the linked list
 
         Returns:
             None
@@ -24,19 +24,19 @@ class Node:
 
     @property
     def data(self):
-        """get: __data
+        """getter of __data
 
         Returns:
-            node data
+            data stored inside the node
         """
         return self.__data
 
     @data.setter
     def data(self, value):
-        """set:__data
+        """setter of __data
 
         Args:
-            value (int): node data
+            value (int): data stored insite the node
 
         Returns:
             None
@@ -47,7 +47,7 @@ class Node:
 
     @property
     def next_node(self):
-        """get: __next_node
+        """getter of __next_node
 
         Returns:
            the next node in the linked list
@@ -56,10 +56,10 @@ class Node:
 
     @next_node.setter
     def next_node(self, value):
-        """set: __next_node
+        """setter of __next_node
 
         Args:
-            value (Node): linked list next node
+            value (Node): next node in the linked list
 
         Returns:
             None
@@ -92,30 +92,28 @@ class SinglyLinkedList:
         """
         self.__head = None
 
-    def SinglyLinkedList(self, value):
-        """ inserts a new Node instance into the sorted position
+    def sorted_insert(self, value):
+        """ inserts a new Node instance into the correct sorted position
 
         Args:
-            value (int): new node data
+            value (int): data stored inside the new node
 
         Returns:
             None
         """
-
         new = Node(value)
-        curr = self.__head
-        if curr is None or curr.data >= value:
-            if curr:
-                new.next_node = curr
+        tmp = self.__head
+        if tmp is None or tmp.data >= value:
+            if tmp:
+                new.next_node = tmp
             self.__head = new
             return
-        while curr.next_node is not None:
-            if curr.next_node.data >= value:
+        while tmp.next_node is not None:
+            if tmp.next_node.data >= value:
                 break
-            curr = curr.next_node
-        new.next_node = curr.next_node
-        curr.next_node = new
-
+            tmp = tmp.next_node
+        new.next_node = tmp.next_node
+        tmp.next_node = new
 
     def __str__(self):
         """String representation of SinglyLinkedList instance
@@ -130,4 +128,3 @@ class SinglyLinkedList:
             if curr.next_node is not None:
                 rep_str += "\n"
             curr = curr.next_node
-

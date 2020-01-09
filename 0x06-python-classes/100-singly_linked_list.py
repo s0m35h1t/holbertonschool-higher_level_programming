@@ -8,7 +8,6 @@ class Node:
         __data (int): data stored inside the node
         __next_node (Node): next node in the linked list
     """
-
     def __init__(self, data, next_node=None):
         """Initializes the node
 
@@ -83,7 +82,6 @@ class SinglyLinkedList:
     Attributes:
         __head (Node): head of the linked list
     """
-
     def __init__(self):
         """Initializes the linked list
 
@@ -102,18 +100,18 @@ class SinglyLinkedList:
             None
         """
         new = Node(value)
-        tmp = self.__head
-        if tmp is None or tmp.data >= value:
-            if tmp:
-                new.next_node = tmp
+        curr = self.__head
+        if curr is None or curr.data >= value:
+            if curr:
+                new.next_node = curr
             self.__head = new
             return
-        while tmp.next_node is not None:
-            if tmp.next_node.data >= value:
+        while curr.next_node is not None:
+            if curr.next_node.data >= value:
                 break
-            tmp = tmp.next_node
-        new.next_node = tmp.next_node
-        tmp.next_node = new
+            curr = tmp.next_node
+        curr.next_node = curr.next_node
+        curr.next_node = new
 
     def __str__(self):
         """String representation of SinglyLinkedList instance
@@ -128,3 +126,4 @@ class SinglyLinkedList:
             if curr.next_node is not None:
                 rep_str += "\n"
             curr = curr.next_node
+        return rep_str

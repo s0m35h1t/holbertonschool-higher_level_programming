@@ -24,27 +24,26 @@ class Square:
 
     def area(self):
         """calculates the square's area
-
         Returns:
             The area of the square
         """
-        return (self.__size) ** 2
+        return self.__size * self.__size
 
     @property
     def size(self):
-        """getter of __size
+        """get squar size
 
         Returns:
-            The size of the square
+            Private instance attribute __size
         """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """setter of __size
+        """set of __size
 
         Args:
-            value (int): size of a side of the square
+            value (int): the size of a size of the square
 
         Returns:
             None
@@ -56,6 +55,7 @@ class Square:
                 raise ValueError("size must be >= 0")
             else:
                 self.__size = value
+
 
     def my_print(self):
         """prints the square
@@ -74,7 +74,7 @@ class Square:
 
     @property
     def position(self):
-        """getter of __position
+        """get: __position
 
         Returns:
             The position of the square in 2D space
@@ -83,7 +83,7 @@ class Square:
 
     @position.setter
     def position(self, value):
-        """setter of __position
+        """set:__position
 
         Args:
             value (tuple): position of the square in 2D space

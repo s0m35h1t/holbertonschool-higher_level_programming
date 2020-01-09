@@ -110,6 +110,7 @@ class SinglyLinkedList:
         curr = self.__head
         if curr is None:
             self.__head = new_node
+            return
         if curr.data >= value:
             new_node.next_node = curr
             self.__head = new_node

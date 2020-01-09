@@ -109,7 +109,7 @@ class SinglyLinkedList:
         while curr.next_node is not None:
             if curr.next_node.data >= value:
                 break
-            curr = tmp.next_node
+            curr = curr.next_node
         curr.next_node = curr.next_node
         curr.next_node = new
 

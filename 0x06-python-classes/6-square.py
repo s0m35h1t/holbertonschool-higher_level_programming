@@ -69,7 +69,7 @@ class Square:
         """set of position
 
         Args:
-            value (int): the position of the square
+            value (tuple): position of the square
 
         Returns:
             None
@@ -90,10 +90,10 @@ class Square:
         """
         if self.__size == 0:
             print()
-            return
         else:
             for i in range(self.__position[1]):
                 print()
             for j in range(self.__size):
-                print(" " * self.__position[0], end="")
-                print("#" * self.__size)
+                print("".join([" " for k in range(self.__position[0])]), end="")
+                print("".join(["#" for l in range(self.__size)]))
+

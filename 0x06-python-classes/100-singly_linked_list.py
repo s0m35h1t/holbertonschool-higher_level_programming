@@ -102,21 +102,20 @@ class SinglyLinkedList:
             None
         """
 
-        new_node = Node(value)
+        new = Node(value)
         curr = self.__head
-        if curr is None:
-            self.__head = new_node
+        if curr is None or curr.data >= value:
+            if curr:
+                new.next_node = tmp
+            self.__head = new
             return
-        if curr.data >= value:
-            new_node.next_node = curr
-            self.__head = new_node
-            return
-        while curr is not None:
+        while curr.next_node is not None:
             if curr.next_node.data >= value:
                 break
             curr = curr.next_node
-        new_node.next_node = curr.next_node
-        curr.next_node = new_node
+        new.next_node = curr.next_node
+        curr.next_node = new
+
 
     def __str__(self):
         """String representation of SinglyLinkedList instance
@@ -124,12 +123,11 @@ class SinglyLinkedList:
         Returns:
             Formatted string representing the linked list
         """
-
-        curr = self.__head
         rep_str = ""
+        curr = self.__head
         while curr is not None:
             rep_str += str(curr)
             if curr.next_node is not None:
                 rep_str += "\n"
             curr = curr.next_node
-        return rep_str
+

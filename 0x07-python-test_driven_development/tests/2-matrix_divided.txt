@@ -14,8 +14,8 @@ Check: function docstring:
 Check: passing None as matrix:
 	>>> matrix_divided(None, 1)
 	Traceback (most recent call last):
-		...
-		TypeError: matrix must be a matrix (list of lists) of integers/floats
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 Check: passing None as div:
 	>>> matrix_divided([[1, 2, 3], [1, 2, 3]], None)
@@ -102,15 +102,15 @@ Check: negative numerators:
 	>>> matrix = [[-1, -2, -3], [-4, -5, -6]]
 	>>> matrix_divided(matrix, 3)
 	[[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
-		>>> matrix
-		[[-1, -2, -3], [-4, -5, -6]]
+	>>> matrix
+	[[-1, -2, -3], [-4, -5, -6]]
 
 Check: div as negative:
 	>>> matrix = [[1, 2, 3], [4, 5, 6]]
-		>>> matrix_divided(matrix, -3)
-		[[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
-		>>> matrix
-		[[1, 2, 3], [4, 5, 6]]
+	>>> matrix_divided(matrix, -3)
+	[[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+	>>> matrix
+	[[1, 2, 3], [4, 5, 6]]
 
 Check: empty matrix:
 	>>> matrix = []
@@ -139,8 +139,8 @@ Check: division by infinity:
 
 Check: division with infinity in numerator:
 	>>> matrix_divided([[1, float('inf'), 3], [4, 5, 6]], 1)
-		[[1.0, inf, 3.0], [4.0, 5.0, 6.0]]
+	[[1.0, inf, 3.0], [4.0, 5.0, 6.0]]
 
 Check: division with infinity in numerator and denomenator
-	>>> matrix_divided(matrix, float('inf'))
-[[0, 0, 0], [0, 0, 0]]
+	>>> matrix_divided([[0, 0, 0], [0, 0, 0]], float('inf'))
+	[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]

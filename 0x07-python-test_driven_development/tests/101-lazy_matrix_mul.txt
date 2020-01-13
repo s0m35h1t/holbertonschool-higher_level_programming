@@ -87,8 +87,3 @@ Check: string in list in m_b:
 	 ...
 	 TypeError: invalid data type for einsum
 
-Check: mismatching matrices:
-	 >>> lazy_matrix_mul([[1, 2, 3], [1, 2, ]], [[1, 2], [2, 1,]])
-	 Traceback (most recent call last):
-	 ...
-	 ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)

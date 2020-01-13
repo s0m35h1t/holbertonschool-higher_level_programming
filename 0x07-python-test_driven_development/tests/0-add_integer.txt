@@ -40,4 +40,4 @@ Check: passed None:
     >>> add_integer(10, None)
     Traceback (most recent call last):
     ...
-    ValueError: cannot convert float NaN to integer
+    TypeError: b must be an integer

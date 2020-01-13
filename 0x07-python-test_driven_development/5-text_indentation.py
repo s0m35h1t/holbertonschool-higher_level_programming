@@ -27,5 +27,5 @@ def text_indentation(text):
             phrase = ''
         else:
             phrase += c
-    # if phrase:
-    #     print(phrase.strip())
+    if phrase:
+        print(phrase.strip())

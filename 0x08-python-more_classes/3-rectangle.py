@@ -105,16 +105,4 @@ class Rectangle:
         if self.__width != 0 and self.__height != 0:
             rep_str += "\n".join("#" * self.__width
                                  for i in range(self.__height))
-
         return rep_str
-
-    def __repr__(self):
-        """return string representation of the rectangle
-
-        Args:
-            None
-
-        Returns:
-            string
-        """
-        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)

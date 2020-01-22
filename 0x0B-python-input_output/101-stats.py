@@ -15,27 +15,26 @@ def status_print(status_tally, file_size):
         if value:
             print("{:s}: {:d}".format(key, value))
 
-
-i = 0
-try:
-    for line in sys.stdin:
-        tokens = line.split()
-        if len(tokens) >= 2:
-            stay = i
-            if tokens[-2] in status_tally:
-                status_tally[tokens[-2]] += 1
-                i += 1
-            try:
-                file_size += int(tokens[-1])
-                if stay == i:
+if __name__ == "__main__":
+    i = 0
+    try:
+        for line in sys.stdin:
+            tokens = line.split()
+            if len(tokens) >= 2:
+                stay = i
+                if tokens[-2] in status_tally:
+                    status_tally[tokens[-2]] += 1
                     i += 1
-            except Exception:
-                if stay == i:
-                    continue
-        if i % 10 == 0:
+                try:
+                    file_size += int(tokens[-1])
+                    if stay == i:
+                        i += 1
+                except Exception:
+                    if stay == i:
+                        continue
+            if i % 10 == 0:
+                status_print(status_tally, file_size)
             status_print(status_tally, file_size)
-        status_print(status_tally, file_size)
 
-except KeyboardInterrupt as e:
-    print(e)
-    raise
+    except KeyboardInterrupt as e:
+        print(e)

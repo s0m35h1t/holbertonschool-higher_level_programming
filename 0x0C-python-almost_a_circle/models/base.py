@@ -92,14 +92,13 @@ class Base:
             (list): of instances
         """
         filename = cls.__name__ + ".json"
-        obj_list = []
         try:
             with open(filename, 'r') as f:
                 obj_list = cls.from_json_string(f.read())
                 for i in obj_list:
                     obj_list[i] = cls.create(**i)
         except:
-            pass
+            return []
         return obj_list
 
     @classmethod

@@ -30,7 +30,7 @@ class Base:
         """returns the JSON string representation of list_dictionaries
 
         Args:
-            list_dictionaries ( list of dicts): list of dict respersantaion 
+            list_dictionaries ( list of dicts): list of dict respersantaion
 
         Returns:
             (str): Json represantation
@@ -44,7 +44,7 @@ class Base:
         """returns the list of the JSON string representation json_string
 
         Args:
-            json_string ( list of dicts): list of dict respersantaion 
+            json_string ( list of dicts): list of dict respersantaion
 
         Returns:
             (list): Json represantation
@@ -87,7 +87,7 @@ class Base:
         """returns a list of instances:
 
         Args:
-            None        
+            None
         Returns:
             (list): of instances
         """
@@ -98,7 +98,7 @@ class Base:
                 obj_list = cls.from_json_string(f.read())
                 for i in obj_list:
                     obj_list[i] = cls.create(**i)
-        except :
+        except Exception:
             return obj_list
         return obj_list
 
@@ -143,10 +143,12 @@ class Base:
                                             "x": int(args[3]),
                                             "y": int(args[4])})
                     elif cls.__name__ is "Square":
-                        obj = cls.create(**{"id": int(args[0]), "size": int(args[1]),
-                                            "x": int(args[2]), "y": int(args[3])})
+                        obj = cls.create(**{"id": int(args[0]),
+                                            "size": int(args[1]),
+                                            "x": int(args[2]),
+                                            "y": int(args[3])})
 
                     obj_list.append(obj)
-        except :
+        except Exception:
             return obj_list
         return obj_list

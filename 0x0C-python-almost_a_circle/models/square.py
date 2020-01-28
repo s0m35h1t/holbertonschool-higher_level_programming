@@ -53,9 +53,9 @@ class Square(Rectangle):
             (str)
         """
         return "[square] ({}) {}/{} - {}".format(self.id,
-                                                         self.x,
-                                                         self.y,
-                                                         self.width)
+                                                 self.x,
+                                                 self.y,
+                                                 self.width)
 
     def update(self, *args, **kwargs):
         """update square attributes

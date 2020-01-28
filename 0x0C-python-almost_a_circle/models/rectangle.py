@@ -159,7 +159,7 @@ class Rectangle(Base):
         Return:
             (str)
         """
-        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.id,
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                                  self.__x,
                                                                  self.__y,
                                                                  self.__width,

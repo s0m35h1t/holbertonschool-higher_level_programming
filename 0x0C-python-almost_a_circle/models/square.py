@@ -20,7 +20,6 @@ class Square(Rectangle):
             None
         """
         super().__init__(size, size, x, y, id)
-        self.size = size
 
     @property
     def size(self):
@@ -38,7 +37,7 @@ class Square(Rectangle):
         """Square size setter
 
         Args:
-            vlaue (int): square new size
+            value (int): square new size
         Returns:
             None
         """

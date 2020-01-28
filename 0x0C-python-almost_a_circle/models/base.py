@@ -64,14 +64,12 @@ class Base:
             None
         """
         filename = cls.__name__ + ".json"
-        if list_objs is None:
-            list_objs = []
-        else:
-            for i, obj in enumerate(list_objs):
-                list_objs[i] = cls.to_dictionary(obj)
-
-        with open(filename, 'w') as f:
-            f.write(cls.to_json_string(list_objs))
+        json_list = []
+        if list_objs is not None:
+            for i in list_objs:
+                json_list.append(i.to_dictionary())
+        with open(filename, "w") as file:
+            file.write(cls.to_json_string(json_list))
 
     @classmethod
     def create(cls, **dictionary):
@@ -91,16 +89,15 @@ class Base:
         Returns:
             (list): of instances
         """
-        filename = cls.__name__ + ".json"
-        l = []
         try:
-            with open(filename, 'r') as f:
-                l = cls.from_json_string(f.read())
-            for i, e in enumerate(l):
-                l[i] = cls.create(**l[i])
+            with open(cls.__name__ + ".json", "r") as file:
+                json_list = cls.from_json_string(file.read())
+                obj_list = []
+                for i in json_list:
+                    obj_list.append(cls.create(**i))
+                return obj_list
         except:
-            pass
-        return l
+            return []
 
     @classmethod
     def save_to_file_csv(cls, list_objs):

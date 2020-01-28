@@ -99,7 +99,7 @@ class Base:
                 for i in obj_list:
                     obj_list[i] = cls.create(**i)
         except:
-            return obj_list
+            pass
         return obj_list
 
     @classmethod

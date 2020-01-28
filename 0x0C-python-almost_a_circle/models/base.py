@@ -96,11 +96,12 @@ class Base:
         try:
             with open(filename, 'r') as f:
                 obj_list = cls.from_json_string(f.read())
-                for i in range(len(obj_list)):
-                    obj_list[i] = cls.create(**obj_list[i])
+            for i, obj in enumerate(l):
+                obj_list[i] = cls.create(**obj_list[i])
         except:
-            return []
+            pass
         return obj_list
+
 
     @classmethod
     def save_to_file_csv(cls, list_objs):

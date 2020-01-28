@@ -96,7 +96,7 @@ class Base:
         try:
             with open(filename, 'r') as f:
                 obj_list = cls.from_json_string(f.read())
-                for i in len(obj_list):
+                for i in range(len(obj_list)):
                     obj_list[i] = cls.create(**obj_list[i])
         except:
             return []

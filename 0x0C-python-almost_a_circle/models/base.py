@@ -98,7 +98,7 @@ class Base:
                 obj_list = cls.from_json_string(f.read())
                 for i in obj_list:
                     obj_list[i] = cls.create(**i)
-        except Exception:
+        except:
             return obj_list
         return obj_list
 

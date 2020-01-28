@@ -52,10 +52,10 @@ class Square(Rectangle):
         Return:
             (str)
         """
-        return "[square] ({}) {}/{} - {}".format(self.id,
-                                                 self.x,
-                                                 self.y,
-                                                 self.width)
+        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
+                                                         self.x,
+                                                         self.y,
+                                                         self.width)
 
     def update(self, *args, **kwargs):
         """update square attributes

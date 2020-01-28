@@ -91,15 +91,16 @@ class Base:
         Returns:
             (list): of instances
         """
+        filename = cls.__name__ + ".json"
+        l = []
         try:
-            with open(cls.__name__ + ".json", "r") as f:
-                json_list = cls.from_json_string(f.read())
-                obj_list = []
-                for i in json_list:
-                    obj_list.append(cls.create(**i))
-                return obj_list
+            with open(filename, 'r') as f:
+                l = cls.from_json_string(f.read())
+            for i, e in enumerate(l):
+                l[i] = cls.create(**l[i])
         except:
-            return []
+            pass
+        return l
 
     @classmethod
     def save_to_file_csv(cls, list_objs):

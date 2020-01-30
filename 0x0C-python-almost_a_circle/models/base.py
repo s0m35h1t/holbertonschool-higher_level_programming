@@ -3,6 +3,7 @@
 
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -149,3 +150,36 @@ class Base:
         except Exception:
             return obj_list
         return obj_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """opens a window and draws all the Rectangles and Squares
+        Args:
+            list_rectangles (list of Rectangles)
+            list_squares (list of squares)
+        Returns:
+            None
+        """
+        for i in list_rectangles:
+            t = turtle.Turtle()
+            t.speed(0.7)
+            t.penup()
+            t.setpos(i.x, i.y)
+            t.pendown()
+            t.forward(i.width)
+            t.left(90)
+            t.forward(i.height)
+            t.left(90)
+            t.forward(i.width)
+            t.left(90)
+            t.forward(i.height)
+        for i in list_squares:
+            t = turtle.Turtle()
+            t.speed(0.7)
+            t.penup()
+            t.setpos(i.x, i.y)
+            t.pendown()
+            t.begin_fill()
+            for _ in range(4):
+                t.forward(i.size)
+                t.left(90)

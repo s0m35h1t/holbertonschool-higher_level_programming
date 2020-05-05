@@ -1,6 +1,6 @@
 #!/usr/bin/node
 'use strict';
-let n = process.argv[2];
+const n = process.argv[2];
 function factorial (n) {
   if (isNaN(n) || n === 1) {
     return (1);

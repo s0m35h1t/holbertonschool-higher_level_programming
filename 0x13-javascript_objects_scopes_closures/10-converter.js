@@ -1,5 +1,5 @@
 #!/usr/bin/node
-exports.converter = (base) => {
+exports.converter = function (base) {
   function conv (nbr) {
     return nbr.toString(base);
   }

@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const request = require('request');
-const url = 'https://swapi-api.hbtn.io/films/' + process.argv[2];
+const url = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
 
 function printCharacters (characters, idx) {
   request(characters[idx], (err, res, body) => {

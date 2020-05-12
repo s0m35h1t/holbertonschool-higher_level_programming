@@ -7,12 +7,12 @@ request(url, (err, res, body) => {
     console.log(err);
   } else {
     const json = JSON.parse(body);
-    json.caracters.forEach(elm => {
+    json.characters.forEach(elm => {
       request(elm, (err, res, body) => {
         if (err) {
           console.log(err);
         } else {
-          console.log(JSON.parse(body).name);
+          console.log(json.name);
         }
       });
     });

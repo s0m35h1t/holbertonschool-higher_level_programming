@@ -1,5 +1,4 @@
 #!/usr/bin/node
-
 const request = require('request');
 const {
   writeFile
@@ -10,6 +9,8 @@ request(url, (err, res, body) => {
   if (err) {
     console.log(err);
   } else {
-    writeFile(filePath, body, 'utf-8');
+    writeFile(filePath, body, 'utf-8', err => {
+      console.log(err);
+    });
   }
 });
